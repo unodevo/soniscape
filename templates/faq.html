@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap" rel="stylesheet">    <title>- SonicScape Music App</title>
+  </head>
+  <style>
+    * {
+        font-family: 'Open Sans', sans-serif;}
+    </style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('index') }}"><span class="text-warning">SonicScape</span></a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('music') }}">Music</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('profile') }}">Profile</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="btn btn-outline-primary me-2" href="{{ url_for('login') }}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-success" href="{{ url_for('register') }}">Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="accordion" id="faq">
+    <div class="accordion" id="faq">
+        <!-- FAQ Question 1 -->
+        <div class="card">
+            <div class="card-header" id="faq-question1">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#faq-answer1" aria-expanded="true" aria-controls="faq-answer1">
+                        How do I create an account?
+                    </button>
+                </h5>
+            </div>
+            <div id="faq-answer1" class="collapse show" aria-labelledby="faq-question1" data-bs-parent="#faq">
+                <div class="card-body">
+                    To create an account, click on the "Sign Up" button on the homepage, and follow the on-screen instructions to provide your details and set up your account.
+                </div>
+            </div>
+        </div>
+    
+        <!-- FAQ Question 2 -->
+        <div class="card">
+            <div class="card-header" id="faq-question2">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#faq-answer2" aria-expanded="false" aria-controls="faq-answer2">
+                        How can I add songs to my playlist?
+                    </button>
+                </h5>
+            </div>
+            <div id="faq-answer2" class="collapse" aria-labelledby="faq-question2" data-bs-parent="#faq">
+                <div class="card-body">
+                    You can add songs to your playlist by clicking the "Add to Playlist" button next to the songs you like while browsing. You can then organize your playlist in your profile.
+                </div>
+            </div>
+        </div>
+    
+        <!-- FAQ Question 3 -->
+        <div class="card">
+            <div class="card-header" id="faq-question3">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#faq-answer3" aria-expanded="false" aria-controls="faq-answer3">
+                        Can I listen to music offline?
+                    </button>
+                </h5>
+            </div>
+            <div id="faq-answer3" class="collapse" aria-labelledby="faq-question3" data-bs-parent="#faq">
+                <div class="card-body">
+                    Yes, you can listen to music offline by downloading songs to your device. Look for the download icon next to the song you want to save for offline listening.
+                </div>
+            </div>
+        </div>
+    
+        <!-- FAQ Question 4 -->
+        <div class="card">
+            <div class="card-header" id="faq-question4">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#faq-answer4" aria-expanded="false" aria-controls="faq-answer4">
+                        Is this a free subscription?
+                    </button>
+                </h5>
+            </div>
+            <div id="faq-answer4" class="collapse" aria-labelledby="faq-question4" data-bs-parent="#faq">
+                <div class="card-body">
+                    Yes, we offer a free subscription. You can access all features and have a full experience.
+                </div>
+            </div>
+        </div>
+    
+        <!-- FAQ Question 5 -->
+        <div class="card">
+            <div class="card-header" id="faq-question5">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#faq-answer5" aria-expanded="false" aria-controls="faq-answer5">
+                        How do I reset my password?
+                    </button>
+                </h5>
+            </div>
+            <div id="faq-answer5" class="collapse" aria-labelledby="faq-question5" data-bs-parent="#faq">
+                <div class="card-body">
+                    You can reset your password by clicking the "Forgot Password" link on the login page and following the instructions sent to your email.
+                </div>
+            </div>
+        </div>
+    
+        <!-- FAQ Question 6 -->
+        <div class="card">
+            <div class="card-header" id="faq-question6">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#faq-answer6" aria-expanded="false" aria-controls="faq-answer6">
+                        Can I create custom playlists?
+                    </button>
+                </h5>
+            </div>
+            <div id="faq-answer6" class="collapse" aria-labelledby="faq-question6" data-bs-parent="#faq">
+                <div class="card-body">
+                    Yes, you can create custom playlists by selecting your favorite songs and organizing them into personalized playlists.
+                </div>
+            </div>
+        </div>
+    
+        <!-- FAQ Question 7 -->
+        <div class="card">
+            <div class="card-header" id="faq-question7">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#faq-answer7" aria-expanded="false" aria-controls="faq-answer7">
+                        What music genres are available?
+                    </button>
+                </h5>
+            </div>
+            <div id="faq-answer7" class="collapse" aria-labelledby="faq-question7" data-bs-parent="#faq">
+                <div class="card-body">
+                    SonicScape offers a wide range of music genres, including pop, rock, hip-hop, jazz, classical, and more.
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Question 8 -->
+<div class="card">
+    <div class="card-header" id="faq-question8">
+        <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#faq-answer8" aria-expanded="false" aria-controls="faq-answer8">
+                I forgot my username. How can I retrieve it?
+            </button>
+        </h5>
+    </div>
+    <div id="faq-answer8" class="collapse" aria-labelledby="faq-question8" data-bs-parent="#faq">
+        <div class="card-body">
+            You can retrieve your username by clicking the "Forgot Username" link on the login page and following the instructions sent to your email.
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Question 9 -->
+<div class="card">
+    <div class="card-header" id="faq-question9">
+        <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#faq-answer9" aria-expanded="false" aria-controls="faq-answer9">
+                How can I change my password?
+            </button>
+        </h5>
+    </div>
+    <div id="faq-answer9" class="collapse" aria-labelledby="faq-question9" data-bs-parent="#faq">
+        <div class="card-body">
+            You can change your password by logging into your profile, navigating to the "Account Settings," and selecting the "Change Password" option.
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Question 10 -->
+<div class="card">
+    <div class="card-header" id="faq-question10">
+        <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#faq-answer10" aria-expanded="false" aria-controls="faq-answer10">
+                I'm having trouble logging in. What should I do?
+            </button>
+        </h5>
+    </div>
+    <div id="faq-answer10" class="collapse" aria-labelledby="faq-question10" data-bs-parent="#faq">
+        <div class="card-body">
+            If you're experiencing login issues, make sure you're entering the correct username and password. If the problem persists, try resetting your password or contacting our support team for assistance.
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Question 11 -->
+<div class="card">
+    <div class="card-header" id="faq-question11">
+        <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#faq-answer11" aria-expanded="false" aria-controls="faq-answer11">
+                How can I contact customer support?
+            </button>
+        </h5>
+    </div>
+    <div id="faq-answer11" class="collapse" aria-labelledby="faq-question11" data-bs-parent="#faq">
+        <div class="card-body">
+            You can reach our customer support team by clicking the "Contact Us" link in the footer of our website or app. Fill out the contact form, and our team will assist you with any issues or questions you have.
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Question 12 -->
+<div class="card">
+    <div class="card-header" id="faq-question12">
+        <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#faq-answer12" aria-expanded="false" aria-controls="faq-answer12">
+                What should I do if I encounter a technical issue while using the app?
+            </button>
+        </h5>
+    </div>
+    <div id="faq-answer12" class="collapse" aria-labelledby="faq-question12" data-bs-parent="#faq">
+        <div class="card-body">
+            If you encounter technical issues while using the app, please check your internet connection and ensure you have the latest app version installed. If the problem persists, contact our support team for assistance.
+        </div>
+    </div>
+</div>
+        
+    </div>
+    
+
+
+{% include 'footer.html' %}
+
+</body>
+</html>

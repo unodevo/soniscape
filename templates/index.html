@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+    <title>index</title>
+  </head>
+
+  <style>
+    * {
+        font-family: 'Open Sans', sans-serif;}
+    </style>
+  <body>
+   
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('index') }}"><span class="text-warning">SonicScape</span></a>
+    
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('music') }}">Music</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('profile') }}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('artists') }}">About Artists</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="btn btn-outline-primary me-2" href="{{ url_for('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-success" href="{{ url_for('register') }}">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+    <div class="card mb-3" style="height: 80vh; display: flex; justify-content: center; align-items: center; margin: 20px;">
+
+        <img src="static/images/note.jpg" class="card-img-top" alt="..." style="max-height: 100%;">
+
+        <div class="card-body" style="position: absolute; text-align: center; color: white;">
+            <h1 class="card-title">Enjoy Your Music Journey with <span class="text-warning">SonicScape</span></h1>
+  <p class="card-text">Discover, listen and immerse yourself in a world of music. From the latest chart-toppers to timeless classics, our app has it all. Dive in and let the music take you on a captivating journey.</p>
+            <a href="{{ url_for('register') }}" class="btn btn-outline-warning btn-lg">Register Now</a>
+        </div>
+    </div>
+
+
+    <div class="container">
+
+        <div class="text-center my-4"> 
+            <h2>        Sync with SonicScape, explore our beats, and start making your favorite playlists.
+            </h2> 
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 col-lg-4">
+                <div class="card">
+                    <img src="/static/images/panda.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            <span class="badge bg-warning text-dark">Pop</span>
+                        </h3>
+                        <p class="card-text">Dive into the vibrant world of pop music, where catchy melodies and upbeat rhythms await to brighten your day.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4">
+                <div class="card">
+                    <img src="/static/images/col.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            <span class="badge bg-warning text-dark">Chill</span>
+                        </h3>
+                        <p class="card-text">Relax and unwind with the soothing vibes of chill music, creating the perfect ambiance for peaceful moments of tranquility.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4">
+                <div class="card">
+                    <img src="/static/images/world.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            <span class="badge bg-warning text-dark">Cinematic</span>
+                        </h3>
+                        <p class="card-text">Explore the captivating realm of cinematic music, perfect for those seeking immersive and cinematic soundscapes to elevate their listening experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% include 'footer.html' %}
+    
+  </body>
+</html>

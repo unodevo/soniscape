@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+    
+    <title>Profile</title>
+</head>
+
+<style>
+* {
+    font-family: 'Open Sans', sans-serif;}
+
+
+    .jumbotron-dark {
+        background-color: #232528; /* Dark background color */
+        color: #fff; /* White text color */
+        padding: 2rem 0; /* Increase top and bottom padding */
+    }
+
+    .jumbotron-dark .btn {
+        padding: 20px 40px; /* Increase button padding */
+        font-size: 24px; /* Increase button font size */
+    }
+   /* Add a custom class to remove the card border with !important */
+   .no-card-border .card {
+        border: none !important; /* Remove the border */
+    }
+
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{{ url_for('index') }}"><span class="text-warning">SonicScape</span></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('music') }}">Music</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{{ url_for('profile') }}">Profile</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('artists') }}">About Artists</a>
+                </li>
+                </ul>
+                <!-- User and Logout Section -->
+                <ul class="navbar-nav">
+                    <li class="nav-item d-flex align-items-center">
+                        {% if 'user_id' in session %}
+                        <span class="text-warning">{{ user.username }}</span>
+                        {% endif %}
+                        <form action="{{ url_for('logout') }}" method="post">
+                            <button type="submit" class="btn btn-outline-danger">Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="card mb-3" style="height: 80vh; display: flex; justify-content: center; align-items: center; margin: 20px;">
+      <img src="static/images/bg.jpg" class="card-img-top" alt="..." style="max-height: 100%;">
+      <div class="card-body" style="position: absolute; text-align: center; color: rgb(255, 255, 255);">
+          <h1 class="card-title">Welcome to Your Music Oasis, {% if 'user_id' in session %}
+            <span class="text-warning">{{ user.username }}</span>
+            {% endif %}
+          </h1>
+          <h5 class="card-text">Explore and enjoy your favorite tunes with SonicScape. Discover new music, create playlists, and elevate your music experience.</h5>
+      </div>
+  </div>
+
+
+  <div class="container mt-5">
+    <div class="jumbotron jumbotron-dark text-center">
+        <h2 class="text-white">Turn Up the Beat it's headphone🎧 o'clock! Time to groove to your favorite tunes and let the music start🕺💃</h2>
+    </div>
+</div>
+
+
+<div class="container mt-3">
+    <div class="row">
+        <!-- User Info Column -->
+        <div class="col-md-4 mb-3">
+            <div class="text-center">
+                <img src="static/images/profileuser.jpeg" alt="User Image" class="img-circle" width="150" height="150">
+            </div>
+
+            <div class="accordion" id="user-info">
+                <div class="text-center">
+                    <h4>Great to have you here, <strong>{{ user.username }}</strong>! What's your music mood today?</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- Music Section -->
+        <div class="col-md-8">
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-6">
+                    <div class="card no-card-border"> <!-- Add the custom class to the card div -->
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="static/images/note.jpg" class="img-fluid" alt="Image">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Create your Playlist now 🎵</h5>
+                                    <a href="{{ url_for('music') }}" class="btn btn-primary btn-lg">Music</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <h2 class="text-center mb-4 mt-4"> My Playlists </h2>
+
+  <div class="container mt-3">
+    <a href="{{ url_for('music') }}" class="btn btn-primary mt-3 mb-3">Add More Music</a>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for song in user.music %}
+            <div class="col">
+                <div class="card h-100 bg-primary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Music Play &#127925;</h5>
+                        <p class="card-text">
+                            <span class="badge bg-warning text-dark">Track </span> {{ song.song_name }}
+                        </p>
+                        <p class="card-text">
+                            <span class="badge bg-warning text-dark">Artist </span> {{ song.artist_name }}
+                        </p>
+                        <p class="card-text">
+                            <span class="badge bg-warning text-dark">Category </span> {{ song.category }}
+                        </p>
+                        <audio controls>
+                            <source src="{{ url_for('static', filename=song.mp3_file) }}" type="audio/mpeg">
+                        </audio>
+                        <form method="POST" action="{{ url_for('remove_from_profile', music_id=song.id) }}">
+                            <br>
+                            <button type="submit" class="btn btn-dark btn-sm">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+    
+{% include 'footer.html' %}
+
+  </body>
+</html>
+

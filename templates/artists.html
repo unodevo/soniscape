@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+    <title>Artists  - SonicScape Music App</title>
+  </head>
+  <style>
+    * {
+        font-family: 'Open Sans', sans-serif;}
+    </style>
+
+    
+  <body>
+   
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('index') }}"><span class="text-warning">SonicScape</span></a>
+    
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('music') }}">Music</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('profile') }}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ url_for('artists') }}">About Artists</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="btn btn-outline-primary me-2" href="{{ url_for('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-success" href="{{ url_for('register') }}">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="card mb-3" style="height: 80vh; display: flex; justify-content: center; align-items: center; margin: 20px;">
+
+        <img src="static/images/pop.jpg" class="card-img-top" alt="..." style="max-height: 100%;">
+
+        <div class="card-body" style="position: absolute; text-align: center; color: white;">
+            <h1 class="card-title">Enjoy Your Music Journey with <span class="text-warning">SonicScape</span></h1>
+  <p class="card-text">Discover, listen and immerse yourself in a world of music. From the latest chart-toppers to timeless classics, our app has it all. Dive in and let the music take you on a captivating journey.</p>
+            <a href="{{ url_for('register') }}" class="btn btn-outline-warning btn-lg">Register Now</a>
+        </div>
+    </div>
+
+<div class="container my-5">
+    <h1 class="text-center">About the Artist</h1>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="static/images/1.jpg" class="card-img-top rounded-circle" alt="Artist 1">
+                <div class="card-body">
+                    <h5 class="card-title">Liam Turner</h5>
+                    <p class="card-text"> Liam Turner is known for creating chill and laid-back tunes that transport listeners to a state of relaxation. His music is a perfect soundtrack for unwinding after a long day or simply enjoying a peaceful moment. Lucas's soothing melodies and gentle guitar strums have earned him a dedicated following of fans who cherish his tranquil soundscapes.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="static/images/3.jpg" class="card-img-top rounded-circle" alt="Artist 2">
+                <div class="card-body">
+                    <h5 class="card-title">Emily Rivers</h5>
+                    <p class="card-text">Emily Rivers is a rising star in the pop music scene. With her mesmerizing vocals and catchy melodies, she has captured the hearts of music lovers worldwide. Emily's journey began at a young age, and her passion for music has only grown stronger over the years. Her chart-topping hits and energetic stage presence make her a pop sensation you won't want to miss.</p>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="static/images/2.jpg" class="card-img-top rounded-circle" alt="Artist 3">
+                <div class="card-body">
+                    <h5 class="card-title">Benjamin Knight</h5>
+                    <p class="card-text">Benjamin Knight is a talented cinematic composer renowned for his ability to craft emotive and evocative music. His compositions have graced numerous films, enhancing the storytelling experience with rich orchestration and atmospheric soundscapes. Benjamin's passion for creating music that resonates with audiences has made him a sought-after name in the world of cinematic scoring.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+    
+</body>
+</html>
